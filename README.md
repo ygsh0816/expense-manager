@@ -18,14 +18,40 @@ This project implements an expense management system that integrates with the Ca
 
 ---
 
-## Local Setup
+## Local Setup (Docker instructions provided below)
 
 ### Prerequisites
 
 - Python 3.x
 - PostgreSQL
+- uv
 
-### Installation
+## Setup Guide: PostgreSQL + uv on macOS
+
+### postgreSQL
+
+- macOS with Homebrew installed  
+  If you don't have Homebrew, install it:
+  ```bash
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  
+- Install and start postgreSQL
+   ``` 
+  brew install postgresql
+  brew services start postgresql
+- login and create db
+   ```
+  psql postgres
+  CREATE DATABASE expense_db;
+
+### Install uv (Python package manager)
+
+- Install uv via Homebrew:
+  ```
+  brew install astral-sh/uv/uv
+  uv --version # to check if installed
+  
+# Installation
 
 1. Clone the repository:
 
@@ -81,12 +107,12 @@ This project implements an expense management system that integrates with the Ca
    python stream_consumer/consumer.py
    ```
 
-3. The API will be available at:  
-   [http://localhost:8000/api/](http://localhost:8000/api/)
+3. The API Docs will be available at:  
+   [http://localhost:8000/api/docs](http://localhost:8000/api/docs)
 
 ---
 
-## 🔄 Switching Between Local and Docker Environments
+##  Switching Between Local and Docker Environments
 
 > 🛑 **Important:** Be sure to configure your `.env` file correctly depending on how you're running the app.
 
@@ -144,8 +170,8 @@ POSTGRES_HOST=db
    - Start the Django web app
    - Start the stream consumer
 
-3. Access the API at:  
-   [http://localhost:8000/api/](http://localhost:8000/api/)
+3. Access the API Docs at:  
+   [http://localhost:8000/api/docs](http://localhost:8000/api/docs)
 
 4. To stop the services:
 
